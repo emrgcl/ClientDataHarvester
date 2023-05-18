@@ -55,4 +55,4 @@ $jsonData = @"
 Insert-Data -endpoint "ClientData" -jsonPayload $jsonData
 
 # Make a GET request to retrieve data
-Get-Data -endpoint "clientdata?clientName=test2343"
+(Get-Data -endpoint "clientdata" | Where-Object {$_.id -eq 5 }).JsonData | ConvertFrom-Json
