@@ -1,5 +1,22 @@
 # ClientDataHarvester
 
+# Build and Publish for IIS
+
+
+1. **Build the application:** Open a command prompt or terminal and navigate to the root directory of your ASP.NET Core application. Run the following command to build the application:
+
+    ```PowerShell
+    dotnet build --configuration Release
+    ```
+
+1. **Publish the application:** Run the following command to publish the application: 
+    ```PowerShell
+    dotnet publish --configuration Release --output <publish-folder>
+    ```
+
+    Replace `<publish-folder>` with the desired folder path where you want to publish the application files. For example, C:\Publish.1
+
+
 # update packages offline.
 
 1. Obtain the NuGet packages: On a machine with internet access, use the following command in the terminal to download the NuGet packages and their dependencies:
