@@ -4,6 +4,7 @@ using ClientDataHarvester.WebApi.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ClientDataHarvester.WebApi.Migrations
 {
     [DbContext(typeof(ClientDataContext))]
-    partial class ClientDataContextModelSnapshot : ModelSnapshot
+    [Migration("20230525120126_UpdateClientDataSchema_1")]
+    partial class UpdateClientDataSchema_1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,7 +52,7 @@ namespace ClientDataHarvester.WebApi.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("ClientName", "DataType", "TimeAdded")
+                    b.HasIndex("ClientName", "DataType")
                         .IsUnique();
 
                     b.ToTable("ClientData");

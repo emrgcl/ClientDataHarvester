@@ -16,7 +16,7 @@ namespace ClientDataHarvester.WebApi.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ClientData>().HasIndex(p => new { p.ClientName, p.DataType }).IsUnique();
+            modelBuilder.Entity<ClientData>().HasIndex(p => new { p.ClientName, p.DataType,p.TimeAdded }).IsUnique();
         }
     }
 }

@@ -4,6 +4,7 @@ using ClientDataHarvester.WebApi.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ClientDataHarvester.WebApi.Migrations
 {
     [DbContext(typeof(ClientDataContext))]
-    partial class ClientDataContextModelSnapshot : ModelSnapshot
+    [Migration("20230525123133_UpdateClientDataSchema_2")]
+    partial class UpdateClientDataSchema_2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

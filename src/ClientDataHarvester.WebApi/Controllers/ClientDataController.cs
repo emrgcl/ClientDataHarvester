@@ -80,6 +80,25 @@ namespace ClientDataHarvester.WebApi.Controllers
             return CreatedAtAction("GetClientData", new { id = clientData.ID }, clientData);
         }
 
+        // GET: api/ClientData/LatestForAllClients
+[HttpGet("LatestForAllClients")]
+public async Task<ActionResult<IEnumerable<ClientData?>>> GetLatestClientDataForAllClients()
+{
+    var latestClientData = await _context.ClientData
+        .GroupBy(d => new { d.ClientName, d.DataType })
+        .Select(g => g.OrderByDescending(d => d.TimeAdded).FirstOrDefault())
+        .ToListAsync();
+
+    if (latestClientData == null)
+    {
+        return NotFound();
+    }
+
+    return latestClientData;
+}
+
+
+
         // DELETE: api/ClientData/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<ClientData>> DeleteClientData(int id)
